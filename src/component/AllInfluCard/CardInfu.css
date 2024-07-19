@@ -1,0 +1,9 @@
+.ring1InfluCard{
+  border-radius: 50%;
+}
+.ring1InfluCardImg{
+  border-radius: 50%;
+  filter: grayscale(100%);
+  z-index: 5;
+
+}

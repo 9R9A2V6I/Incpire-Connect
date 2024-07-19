@@ -7,7 +7,12 @@ module.exports = withMT({
         russonOne: ['Russon One'],
         inter: ["Inter"],
         petit: ['Petit Formal Script'],
+        Covered:["Covered By Your Grace"],
+        Contrail:['Contrail One']
       },
+      background:{
+        orangeCard:"#EF5A6F"
+      }
     },
   },
   plugins: [],

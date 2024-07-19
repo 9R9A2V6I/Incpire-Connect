@@ -1,0 +1,19 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  
+}
+
+.sidebar-open {
+  right: 0;
+}
+
+.sidebar-content {
+  padding: 20px;
+  color: white;
+}

@@ -9,10 +9,14 @@ function ConnectionForm() {
     contactNo: '',
     contentD: '',
     influType: '',
-    linkInsta: '',
+    instagramLink: '',
+    instagramFollower: '',
     facebookLink: '',
+    facebookFollower: '',
     twitterLink: '',
+    twitterFollower: '',
     youtubeLink: '',
+    youtubeFollower: '',
     additionalInfo: '',
   });
 
@@ -43,7 +47,7 @@ function ConnectionForm() {
           error = 'Contact number must be 10 digits';
         }
         break;
-      case 'linkInsta':
+      case 'instagramLink':
       case 'facebookLink':
       case 'twitterLink':
       case 'youtubeLink':
@@ -63,6 +67,14 @@ function ConnectionForm() {
           )
         ) {
           error = 'Invalid URL format';
+        }
+        break;
+      case 'instagramFollower':
+      case 'facebookFollower':
+      case 'twitterFollower':
+      case 'youtubeFollower':
+        if (!/^\d+$/.test(value)) {
+          error = 'Follower count must be a number';
         }
         break;
       default:
@@ -95,24 +107,46 @@ function ConnectionForm() {
       return;
     }
 
+    const data = {
+      username: formData.username,
+      email: formData.email,
+      contactNo: formData.contactNo,
+      contentD: formData.contentD,
+      influType: formData.influType,
+      facebookLink: formData.facebookLink,
+      facebookFollower: formData.facebookFollower,
+      instagramLink: formData.instagramLink,
+      instagramFollower: formData.instagramFollower,
+      twitterLink: formData.twitterLink,
+      twitterFollower: formData.twitterFollower,
+      youtubeLink: formData.youtubeLink,
+      youtubeFollower: formData.youtubeFollower,
+
+      additionalInfo: formData.additionalInfo,
+    };
+
     try {
       const response = await axios.post(
         'http://localhost:5000/workout/influcerInfo',
-        formData
+        data
       );
 
       if (response.status === 201) {
-        alert('Successfully');
+        alert('Successfully created influencer info');
         setFormData({
           username: '',
           email: '',
           contactNo: '',
           contentD: '',
           influType: '',
-          linkInsta: '',
+          instagramLink: '',
+          instagramFollower: '',
           facebookLink: '',
+          facebookFollower: '',
           twitterLink: '',
+          twitterFollower: '',
           youtubeLink: '',
+          youtubeFollower: '',
           additionalInfo: '',
         });
         setErrors({});
@@ -172,7 +206,7 @@ function ConnectionForm() {
                 name="contentD"
                 value={formData.contentD}
                 onChange={handleChange}
-                placeholder="Your Contain Details"
+                placeholder="Your Content Details"
               ></textarea>
               {errors.contentD && <p className="error">{errors.contentD}</p>}
             </div>
@@ -201,12 +235,26 @@ function ConnectionForm() {
             <div>
               <input
                 type="url"
-                name="linkInsta"
-                value={formData.linkInsta}
+                name="instagramLink"
+                value={formData.instagramLink}
                 onChange={handleChange}
                 placeholder="Your Instagram Link *"
               />
-              {errors.linkInsta && <p className="error">{errors.linkInsta}</p>}
+              {errors.instagramLink && (
+                <p className="error">{errors.instagramLink}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="number"
+                name="instagramFollower"
+                value={formData.instagramFollower}
+                onChange={handleChange}
+                placeholder="Instagram Followers *"
+              />
+              {errors.instagramFollower && (
+                <p className="error">{errors.instagramFollower}</p>
+              )}
             </div>
             <div>
               <input
@@ -218,6 +266,18 @@ function ConnectionForm() {
               />
               {errors.youtubeLink && (
                 <p className="error">{errors.youtubeLink}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="number"
+                name="youtubeFollower"
+                value={formData.youtubeFollower}
+                onChange={handleChange}
+                placeholder="YouTube Followers *"
+              />
+              {errors.youtubeFollower && (
+                <p className="error">{errors.youtubeFollower}</p>
               )}
             </div>
             <div>
@@ -234,6 +294,18 @@ function ConnectionForm() {
             </div>
             <div>
               <input
+                type="number"
+                name="facebookFollower"
+                value={formData.facebookFollower}
+                onChange={handleChange}
+                placeholder="Facebook Followers *"
+              />
+              {errors.facebookFollower && (
+                <p className="error">{errors.facebookFollower}</p>
+              )}
+            </div>
+            <div>
+              <input
                 type="url"
                 name="twitterLink"
                 value={formData.twitterLink}
@@ -242,6 +314,18 @@ function ConnectionForm() {
               />
               {errors.twitterLink && (
                 <p className="error">{errors.twitterLink}</p>
+              )}
+            </div>
+            <div>
+              <input
+                type="number"
+                name="twitterFollower"
+                value={formData.twitterFollower}
+                onChange={handleChange}
+                placeholder="Twitter Followers *"
+              />
+              {errors.twitterFollower && (
+                <p className="error">{errors.twitterFollower}</p>
               )}
             </div>
           </div>

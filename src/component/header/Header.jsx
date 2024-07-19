@@ -19,8 +19,8 @@ function Header() {
       <div className={`flex justify-center items-center w-ful`}>
         <div className="grid grid-cols-2 justify-center items-center  font-inter w-10/12 gap-20 mt-10  ">
         <motion.div          
-           initial={{ x:-30, opacity: 0 }}
-           animate={{ x: 0, opacity: 1 }}
+           initial={{ y:100, opacity: 0 }}
+           animate={{ y: 0, opacity: 1 }}
            transition={{ duration: 0.6, ease: "easeOut" }}>
           <div className="headerLeft w-12/12">
          

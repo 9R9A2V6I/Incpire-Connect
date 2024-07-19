@@ -10,7 +10,7 @@ nav {
 }
 
 .left {
-  width: 40%;
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +27,7 @@ nav {
   width: 15%;
   height: 90%;
 }
+
 
 .center {
   width: 40%;

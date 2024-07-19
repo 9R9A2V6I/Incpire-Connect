@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
   const [inputData, setInputData] = useState({
@@ -9,7 +10,10 @@ function Signup() {
     password: '',
     confirmPassword: '',
     contactNo: '',
+    professionType: '',
   });
+
+  const navigate = useNavigate();
 
   const [error, setError] = useState('');
 
@@ -57,17 +61,20 @@ function Signup() {
           password: inputData.password,
           confirmPassword: inputData.confirmPassword,
           contactNo: inputData.contactNo,
+          professionType: inputData.professionType,
         }
       );
 
       if (response.status === 201) {
-        alert('Registered successfully');
+        navigate('/login');
+
         setInputData({
           username: '',
           email: '',
           password: '',
           confirmPassword: '',
           contactNo: '',
+          professionType:" "
         });
         // Handle successful registration, e.g., navigate to another screen
       } else {
@@ -143,6 +150,22 @@ function Signup() {
                 onChange={handleChange}
               />
               <label>Contact No.</label>
+            </div>
+            <div className="professionBox mt-10">
+              <label for="underline_select" class="sr-only">
+                Your Profession
+              </label>
+              <select
+                id="underline_select"
+                name="professionType"
+                value={inputData.professionType}
+                onChange={handleChange}
+                class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+              >
+                <option selected>Choose a Profession</option>
+                <option value="influencer">influencer</option>
+                <option value="client">client</option>
+              </select>
             </div>
           </div>
           {error && <p className="error">{error}</p>}

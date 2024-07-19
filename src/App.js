@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 import { Layout, RequireAuth } from './routes/layout/Layout';
@@ -10,6 +10,9 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import ConnectionForm from './routes/connectUs/ConnectionForm';
 import ForgetPass from './routes/forgetPassword/ForgetPass';
+import AllInflucer from './routes/influcerAll/AllInflucer';
+import SingleInfu from './routes/SingleInfuCard/SingleInfu';
+import ScrollToTop from './utils/ScrollTop';
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +24,7 @@ function App() {
           path: '/',
           element: <HomePage />,
         },
+       
       ],
     },
 
@@ -31,6 +35,14 @@ function App() {
         {
           path: '/connect',
           element: <ConnectionForm />,
+        },
+        {
+          path: '/allinfuc',
+          element: <AllInflucer />,
+        },
+        {
+          path: 'singleInfu',
+          element: <SingleInfu />,
         },
       ],
     },

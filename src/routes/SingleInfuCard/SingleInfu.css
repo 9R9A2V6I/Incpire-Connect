@@ -1,0 +1,12 @@
+.socialIcon{
+  animation: gelatine 0.6s infinite;
+  /* box-shadow: 4px -40px 60px 5px rgb(26, 117, 206) inset; */
+  
+}
+
+/* @keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+} */
